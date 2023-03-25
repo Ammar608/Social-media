@@ -36,19 +36,18 @@ menuItems.forEach(item =>{
 
 // ==================== MESSAGE ====================
 // search chat
-const searchMessage = () =>{
-    const val = messageSearch.value.toLowerCase();
-    console.log(val);
-    message.forEach(user =>{
-        let name = user.querySelectorAll('h5').textContent.toLowerCase();
-        if(name.indexOf(val) !== -1){
+const searchMessage = () => {
+    const val = messageSearch.value.toUpperCase();
+    message.forEach(user => {
+        let name = user.querySelector('h5').textContent.toUpperCase();
+        if (name.indexOf(val) !== -1) {
             user.style.display = 'flex';
-        }else{
+        } else {
             user.style.display = 'none';
         }
     })
 }
-messageSearch.addEventListener('keyup',searchMessage);
+messageSearch.addEventListener('keyup', searchMessage);
 
 messageNotification.addEventListener('click',()=>{
     messages.style.boxShadow = '0 0 1rem var(--color-primary)';
